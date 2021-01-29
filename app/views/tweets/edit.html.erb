@@ -1,6 +1,11 @@
-<h1>Editing Tweet</h1>
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
 
-<%= render 'form', tweet: @tweet %>
+            <div class="column is-4">
+                <h2 class="title is-2">Edit Tweet</h2>
+                <%= render 'form', tweet: @tweet %>
 
-<%= link_to 'Show', @tweet %> |
-<%= link_to 'Back', tweets_path %>
+            </div>
+        </div>
+</section>

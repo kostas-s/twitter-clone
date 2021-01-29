@@ -1,9 +1,38 @@
 <p id="notice"><%= notice %></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
 
-<p>
-  <strong>Tweet:</strong>
-  <%= @tweet.tweet %>
-</p>
+            <div class="column is-4">
+                <div class="box">
+                    <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                                <img src="https://bulma.io/images/placeholders/64x64.png">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content">
+                                <strong><%= @tweet.user.name %></strong><br />
+                                <small>@<%= @tweet.user.username %></small><br />
+                                <p><%= @tweet.tweet %></p>
+                                <%= link_to root_path, class:"level-item" do %>
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class="fa fa-home"></i>
+                                    </span>
+                                    <span>Home</span>
+                                </span>
+                                <% end %>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <%= link_to 'Edit', edit_tweet_path(@tweet) %> |
 <%= link_to 'Back', tweets_path %>
