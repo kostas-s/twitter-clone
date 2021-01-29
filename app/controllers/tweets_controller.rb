@@ -3,11 +3,13 @@ class TweetsController < ApplicationController
 
   # GET /tweets or /tweets.json
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order("created_at DESC")
+    @tweet = Tweet.new
   end
 
   # GET /tweets/1 or /tweets/1.json
   def show
+    
   end
 
   # GET /tweets/new
@@ -25,8 +27,8 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: "Tweet was successfully created." }
-        format.json { render :show, status: :created, location: @tweet }
+        format.html { redirect_to root_path, notice: "Tweet was successfully created." }
+        format.json { render :index, status: :created, location: @tweet }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
